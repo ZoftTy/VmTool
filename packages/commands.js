@@ -135,7 +135,10 @@ class Commands {
 		// 运行
 		let run = this.exec(args)
 		// 监听结束
-		run.stdout.on('close', () => spinner.succeed(`${name} ${chalk.green('启动完成')}`))
+		run.on('exit', () => {
+			spinner.succeed(`${name} ${chalk.green('启动完成')}`)
+			process.exit()
+		})
 	}
 
 	// 停止
@@ -147,7 +150,10 @@ class Commands {
 		// 运行
 		let run = this.exec(args)
 		// 监听结束
-		run.stdout.on('close', () => spinner.succeed(`${name} ${chalk.green('已停止')}`))
+		run.on('exit', () => {
+			spinner.succeed(`${name} ${chalk.green('已停止')}`)
+			process.exit()
+		})
 	}
 
 	// 挂起
@@ -159,7 +165,10 @@ class Commands {
 		// 运行
 		let run = this.exec(args)
 		// 监听结束
-		run.stdout.on('close', () => spinner.succeed(`${name} ${chalk.green('已挂起')}`))
+		run.on('exit', () => {
+			spinner.succeed(`${name} ${chalk.green('已挂起')}`)
+			process.exit()
+		})
 	}
 
 }
