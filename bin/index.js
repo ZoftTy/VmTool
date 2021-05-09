@@ -37,8 +37,7 @@ program
 	.description('启动虚拟机', {
 		name: '虚拟机名称'
 	})
-	.option('--hard', '关闭电源')
-	.action((name, option) => commands.stop(name, option))
+	.action((name) => commands.stop(name))
 
 // 挂起虚拟机
 program
@@ -47,8 +46,7 @@ program
 	.description('挂起虚拟机', {
 		name: '虚拟机名称'
 	})
-	.option('--hard', '不释放网络连接')
-	.action((name, option) => commands.suspend(name, option))
+	.action((name) => commands.suspend(name))
 
 // 解析用户传入的命令
 program.parse(process.argv)

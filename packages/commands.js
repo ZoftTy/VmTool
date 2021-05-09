@@ -142,9 +142,9 @@ class Commands {
 	}
 
 	// 停止
-	stop(name, option) {
+	stop(name) {
 		// 命令参数
-		let args = ['stop', join(this.config.path, `${name}.vmwarevm`, `${name}.vmx`), option.hard ? 'hard' : 'soft']
+		let args = ['stop', join(this.config.path, `${name}.vmwarevm`, `${name}.vmx`)]
 		// 指示器
 		let spinner = new ora(`${name} ${chalk.yellow('停止中')}`).start()
 		// 运行
@@ -157,9 +157,9 @@ class Commands {
 	}
 
 	// 挂起
-	suspend(name, option) {
+	suspend(name) {
 		// 命令参数
-		let args = ['suspend', join(this.config.path, `${name}.vmwarevm`, `${name}.vmx`), option.hard ? 'hard' : 'soft']
+		let args = ['suspend', join(this.config.path, `${name}.vmwarevm`, `${name}.vmx`)]
 		// 指示器
 		let spinner = new ora(`${name} ${chalk.yellow('挂起中')}`).start()
 		// 运行
